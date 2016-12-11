@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>99乘法表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        #tab {
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -450px;
+            margin-top: -135px;
+            width: 900px;
+            height: 270px;
+            border: 1px solid lightblue;
+            border-radius: 10px;
+        }
+
+        #tab ul {
+
+        }
+
+        #tab ul li {
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #tab ul li:hover{
+            background: orange;
+        }
+
+        #tab ul li span {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .c1 {
+            background: lavender;
+        }
+
+        .c2 {
+            background: lightcyan;
+        }
+
+        .c3 {
+            background: cadetblue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="c1">
+            <span>1*1=1</span>
+        </li>
+        <li class="c2">
+            <span>1*2=2</span>
+            <span>2*2=4</span>
+        </li>
+        <li class="c3">
+            <span>1*3=3</span>
+            <span>2*3=6</span>
+            <span>3*3=9</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var oTab = document.getElementById('tab');
+    var str = "";
+    str += "<ul>";
+    for (var i = 1; i <= 9; i++) {
+        var val = "c1";
+        switch (i%3){
+            case 0:
+                val = "c1";
+                break;
+            case 1:
+                val = "c2";
+                break;
+            default:
+                val = "c3"
+        }
+        str += "<li class='"+val+"'>";
+            for (var j = 1; j <=i;j++){
+                str += "<span>";
+                    str += ""+j+"*"+i+"="+(j*i)+"";
+                str += "</span>";
+            }
+
+        str += "</li>";
+    }
+;
+    str += "</ul>"
+    oTab.innerHTML=str
+
+</script>
